@@ -17,7 +17,7 @@ pipeline {
 
     stage('Checkout SCM') {
       steps {
-        git branch: '$BRANCH_NAME', url: 'https://github.com/toritsejuFO/php-todo.git'
+        git branch: '$BRANCH_NAME', url: 'https://github.com/Kachi79/New_php-todo.git'
       }
     }
 
@@ -58,7 +58,7 @@ pipeline {
     stage('Tag image') {
       steps {
         script {
-          sh "docker tag php-todo:${TAG} toritseju/php-todo:${TAG}"
+          sh "docker tag php-todo:${TAG} Kachi79/New_php-todo:${TAG}"
         }
       }
     }
@@ -66,7 +66,7 @@ pipeline {
     stage('Push image') {
       steps {
         script {
-          sh "docker push toritseju/php-todo:${TAG}"
+          sh "docker push Kachi79/New_php-todo:${TAG}"
         }
       }
     }
@@ -77,7 +77,7 @@ pipeline {
           sh "docker stop php-todo-${env.BUILD_ID}"
           sh "docker rm php-todo-${env.BUILD_ID}"
           sh "docker rmi php-todo:${TAG}"
-          sh "docker rmi toritseju/php-todo:${TAG}"
+          sh "docker rmi Kachi79/New_php-todo:${TAG}"
         }
       }
     }
